@@ -1,0 +1,24 @@
+# Artefatos gerados
+catboost_info/
+lightning_logs/
+model_checkpoints/
+
+# Repositórios externos (clonados localmente)
+DeepTab/
+tabarena/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDEs
+.idea/
+.vscode/
