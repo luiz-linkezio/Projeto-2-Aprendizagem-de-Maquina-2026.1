@@ -3503,3 +3503,1981 @@ ValueError: SimpleImputer does not support data with dtype bool. Please provide 
 2026-06-01 15:44:23  DEBUG      Carregado: train=8878  test=3806  feats=24
 2026-06-01 15:44:23  INFO       [mambular] iniciando...  |  RAM 24.5/32.8 GB (75%)  SWAP 4.3/4.3 GB  VRAM 2.0/12.3 GB
 2026-06-01 15:53:36  DEBUG      [mambular] best_params={'d_model': 16, 'n_layers': 3, 'dropout': 0.36599697090570255, 'lr': 0.0010401663679887319, 'numerical_preprocessing': 'ple'}
+2026-06-01 15:56:58  INFO       [mambular] OK  AUC=0.7909  ACC=0.7165  G-Mean=0.6950  CE=0.5487  t=754s
+2026-06-01 15:56:58  DEBUG      [mambular] VRAM livre após cleanup: 9.5 GB
+2026-06-01 15:56:58  DEBUG      [mambular] pós-GC  |  RAM 25.0/32.8 GB (76%)  SWAP 4.3/4.3 GB
+2026-06-01 15:56:58  DEBUG      [lightgbm] já computado — pulando
+2026-06-01 15:56:58  DEBUG      [catboost] já computado — pulando
+2026-06-01 15:56:58  DEBUG      [xgboost] já computado — pulando
+2026-06-01 15:56:58  DEBUG      [autogluon_default] já computado — pulando
+2026-06-01 15:56:58  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-01 15:56:58  INFO     =======================================================
+2026-06-01 15:56:58  INFO     DATASET: HR_Analytics_Job_Change_of_Data_Scientists  (task_id=363679, regime=grande, n=19158)
+2026-06-01 15:56:58  DEBUG      Carregado: train=13410  test=5748  feats=12
+2026-06-01 15:56:58  INFO       [mambular] iniciando...  |  RAM 25.0/32.8 GB (76%)  SWAP 4.3/4.3 GB  VRAM 2.1/12.3 GB
+2026-06-01 15:56:59  ERROR      [mambular] ERRO após 0s: '<' not supported between instances of 'str' and 'NoneType'
+Traceback (most recent call last):
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/runner.py", line 280, in run
+    best_params = tune_model(model_name, X_train, y_train,
+                             OPTUNA_N_TRIALS, OPTUNA_CV_FOLDS, SEED)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 189, in tune_model
+    return _TUNE_FNS[model_name](X_train, y_train, n_trials, cv_folds, seed)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 114, in tune_mambular
+    study.optimize(objective, n_trials=n_trials, show_progress_bar=False)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/study.py", line 490, in optimize
+    _optimize(
+    ~~~~~~~~~^
+        study=self,
+        ^^^^^^^^^^^
+    ...<7 lines>...
+        show_progress_bar=show_progress_bar,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 68, in _optimize
+    _optimize_sequential(
+    ~~~~~~~~~~~~~~~~~~~~^
+        study,
+        ^^^^^^
+    ...<8 lines>...
+        progress_bar=progress_bar,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 165, in _optimize_sequential
+    frozen_trial_id = _run_trial(study, func, catch)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 263, in _run_trial
+    raise func_err
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 206, in _run_trial
+    value_or_values = func(trial)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 111, in objective
+    return _mambular_cv(params, X_train, y_train, cv_folds, seed)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 82, in _mambular_cv
+    model.fit(X_tr, y_tr, max_epochs=20, batch_size=32)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/models/utils/sklearn_base_classifier.py", line 198, in fit
+    return super().fit(
+           ~~~~~~~~~~~^
+        X=X,
+        ^^^^
+    ...<24 lines>...
+        **trainer_kwargs,
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/models/utils/sklearn_parent.py", line 334, in fit
+    self._build_model(
+    ~~~~~~~~~~~~~~~~~^
+        X=X,
+        ^^^^
+    ...<17 lines>...
+        val_metrics=val_metrics,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/models/utils/sklearn_parent.py", line 186, in _build_model
+    self.data_module.preprocess_data(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        X,
+        ^^
+    ...<6 lines>...
+        random_state=random_state,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/data_utils/datamodule.py", line 173, in preprocess_data
+    self.preprocessor.fit(combined_X, combined_y, combined_embeddings)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/pretab/preprocessor.py", line 297, in fit
+    self.column_transformer.fit(X, y)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/compose/_column_transformer.py", line 934, in fit
+    self.fit_transform(X, y=y, **params)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/compose/_column_transformer.py", line 996, in fit_transform
+    result = self._call_func_on_transformers(
+        X,
+    ...<3 lines>...
+        routed_params=routed_params,
+    )
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/compose/_column_transformer.py", line 897, in _call_func_on_transformers
+    return Parallel(n_jobs=self.n_jobs)(jobs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/parallel.py", line 82, in __call__
+    return super().__call__(iterable_with_config_and_warning_filters)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/joblib/parallel.py", line 1986, in __call__
+    return output if self.return_generator else list(output)
+                                                ~~~~^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/joblib/parallel.py", line 1914, in _get_sequential_output
+    res = func(*args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/parallel.py", line 147, in __call__
+    return self.function(*args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/pipeline.py", line 1540, in _fit_transform_one
+    res = transformer.fit_transform(X, y, **params.get("fit_transform", {}))
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/pipeline.py", line 731, in fit_transform
+    return last_step.fit_transform(
+           ~~~~~~~~~~~~~~~~~~~~~~~^
+        Xt, y, **last_step_params["fit_transform"]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/base.py", line 897, in fit_transform
+    return self.fit(X, y, **fit_params).transform(X)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/pretab/transformers/utils/continuous_ordinal.py", line 31, in fit
+    {category: i + 1 for i, category in enumerate(np.unique(col))}
+                                                  ~~~~~~~~~^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/numpy/lib/_arraysetops_impl.py", line 291, in unique
+    ret = _unique1d(ar, return_index, return_inverse, return_counts,
+                    equal_nan=equal_nan, inverse_shape=ar.shape, axis=None)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/numpy/lib/_arraysetops_impl.py", line 358, in _unique1d
+    ar.sort()
+    ~~~~~~~^^
+TypeError: '<' not supported between instances of 'str' and 'NoneType'
+2026-06-01 15:56:59  DEBUG      [mambular] VRAM livre após cleanup: 9.5 GB
+2026-06-01 15:56:59  DEBUG      [mambular] pós-GC  |  RAM 25.0/32.8 GB (76%)  SWAP 4.3/4.3 GB
+2026-06-01 15:56:59  DEBUG      [lightgbm] já computado — pulando
+2026-06-01 15:56:59  DEBUG      [catboost] já computado — pulando
+2026-06-01 15:56:59  DEBUG      [xgboost] já computado — pulando
+2026-06-01 15:56:59  DEBUG      [autogluon_default] já computado — pulando
+2026-06-01 15:56:59  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-01 15:56:59  INFO     =======================================================
+2026-06-01 15:56:59  INFO     DATASET: credit_card_clients_default  (task_id=363627, regime=grande, n=30000)
+2026-06-01 15:56:59  DEBUG      Carregado: train=21000  test=9000  feats=23
+2026-06-01 15:56:59  INFO       [mambular] iniciando...  |  RAM 24.9/32.8 GB (76%)  SWAP 4.3/4.3 GB  VRAM 2.1/12.3 GB
+2026-06-01 16:18:25  DEBUG      [mambular] best_params={'d_model': 16, 'n_layers': 3, 'dropout': 0.36599697090570255, 'lr': 0.0010401663679887319, 'numerical_preprocessing': 'ple'}
+2026-06-01 16:23:16  INFO       [mambular] OK  AUC=0.7780  ACC=0.8210  G-Mean=0.6009  CE=0.4296  t=1577s
+2026-06-01 16:23:17  DEBUG      [mambular] VRAM livre após cleanup: 9.7 GB
+2026-06-01 16:23:17  DEBUG      [mambular] pós-GC  |  RAM 24.9/32.8 GB (76%)  SWAP 4.3/4.3 GB
+2026-06-01 16:23:17  DEBUG      [lightgbm] já computado — pulando
+2026-06-01 16:23:17  DEBUG      [catboost] já computado — pulando
+2026-06-01 16:23:17  DEBUG      [xgboost] já computado — pulando
+2026-06-01 16:23:17  DEBUG      [autogluon_default] já computado — pulando
+2026-06-01 16:23:17  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-01 16:23:17  INFO     =======================================================
+2026-06-01 16:23:17  INFO     DATASET: Amazon_employee_access  (task_id=363613, regime=grande, n=32769)
+2026-06-01 16:23:17  DEBUG      Carregado: train=22938  test=9831  feats=9
+2026-06-01 16:23:17  INFO       [mambular] iniciando...  |  RAM 24.9/32.8 GB (76%)  SWAP 4.3/4.3 GB  VRAM 1.9/12.3 GB
+2026-06-01 16:34:41  DEBUG      [mambular] best_params={'d_model': 16, 'n_layers': 3, 'dropout': 0.3875664116805573, 'lr': 0.003946212980759096, 'numerical_preprocessing': 'quantile'}
+2026-06-01 16:35:19  INFO       [mambular] OK  AUC=0.7989  ACC=0.9421  G-Mean=0.1451  CE=0.1831  t=722s
+2026-06-01 16:35:19  DEBUG      [mambular] VRAM livre após cleanup: 9.9 GB
+2026-06-01 16:35:20  DEBUG      [mambular] pós-GC  |  RAM 25.3/32.8 GB (77%)  SWAP 4.3/4.3 GB
+2026-06-01 16:35:20  DEBUG      [lightgbm] já computado — pulando
+2026-06-01 16:35:20  DEBUG      [catboost] já computado — pulando
+2026-06-01 16:35:20  DEBUG      [xgboost] já computado — pulando
+2026-06-01 16:35:20  DEBUG      [autogluon_default] já computado — pulando
+2026-06-01 16:35:20  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-01 16:35:20  INFO     =======================================================
+2026-06-01 16:35:20  INFO     DATASET: bank-marketing  (task_id=363618, regime=grande, n=45211)
+2026-06-01 16:35:20  DEBUG      Carregado: train=31647  test=13564  feats=13
+2026-06-01 16:35:20  INFO       [mambular] iniciando...  |  RAM 25.3/32.8 GB (77%)  SWAP 4.3/4.3 GB  VRAM 1.8/12.3 GB
+2026-06-01 16:54:29  DEBUG      [mambular] best_params={'d_model': 32, 'n_layers': 2, 'dropout': 0.35403628889802274, 'lr': 0.00010838581269344756, 'numerical_preprocessing': 'ple'}
+2026-06-01 17:00:23  INFO       [mambular] OK  AUC=0.7593  ACC=0.8949  G-Mean=0.4180  CE=0.3030  t=1503s
+2026-06-01 17:00:23  DEBUG      [mambular] VRAM livre após cleanup: 9.4 GB
+2026-06-01 17:00:23  DEBUG      [mambular] pós-GC  |  RAM 27.9/32.8 GB (85%)  SWAP 4.3/4.3 GB
+2026-06-01 17:00:23  DEBUG      [lightgbm] já computado — pulando
+2026-06-01 17:00:23  DEBUG      [catboost] já computado — pulando
+2026-06-01 17:00:23  DEBUG      [xgboost] já computado — pulando
+2026-06-01 17:00:23  DEBUG      [autogluon_default] já computado — pulando
+2026-06-01 17:00:23  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-01 17:00:23  INFO     =======================================================
+2026-06-01 17:00:23  INFO     DATASET: APSFailure  (task_id=363616, regime=grande, n=76000)
+2026-06-01 17:00:24  DEBUG      Carregado: train=53200  test=22800  feats=170
+2026-06-01 17:00:24  INFO       [mambular] iniciando...  |  RAM 29.1/32.8 GB (89%)  SWAP 4.3/4.3 GB  VRAM 2.4/12.3 GB
+2026-06-01 17:00:31  ERROR      [mambular] ERRO após 6s: 0
+Traceback (most recent call last):
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/runner.py", line 280, in run
+    best_params = tune_model(model_name, X_train, y_train,
+                             OPTUNA_N_TRIALS, OPTUNA_CV_FOLDS, SEED)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 189, in tune_model
+    return _TUNE_FNS[model_name](X_train, y_train, n_trials, cv_folds, seed)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 114, in tune_mambular
+    study.optimize(objective, n_trials=n_trials, show_progress_bar=False)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/study.py", line 490, in optimize
+    _optimize(
+    ~~~~~~~~~^
+        study=self,
+        ^^^^^^^^^^^
+    ...<7 lines>...
+        show_progress_bar=show_progress_bar,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 68, in _optimize
+    _optimize_sequential(
+    ~~~~~~~~~~~~~~~~~~~~^
+        study,
+        ^^^^^^
+    ...<8 lines>...
+        progress_bar=progress_bar,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 165, in _optimize_sequential
+    frozen_trial_id = _run_trial(study, func, catch)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 263, in _run_trial
+    raise func_err
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 206, in _run_trial
+    value_or_values = func(trial)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 111, in objective
+    return _mambular_cv(params, X_train, y_train, cv_folds, seed)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 82, in _mambular_cv
+    model.fit(X_tr, y_tr, max_epochs=20, batch_size=32)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/models/utils/sklearn_base_classifier.py", line 198, in fit
+    return super().fit(
+           ~~~~~~~~~~~^
+        X=X,
+        ^^^^
+    ...<24 lines>...
+        **trainer_kwargs,
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/models/utils/sklearn_parent.py", line 334, in fit
+    self._build_model(
+    ~~~~~~~~~~~~~~~~~^
+        X=X,
+        ^^^^
+    ...<17 lines>...
+        val_metrics=val_metrics,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/models/utils/sklearn_parent.py", line 186, in _build_model
+    self.data_module.preprocess_data(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        X,
+        ^^
+    ...<6 lines>...
+        random_state=random_state,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/data_utils/datamodule.py", line 173, in preprocess_data
+    self.preprocessor.fit(combined_X, combined_y, combined_embeddings)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/pretab/preprocessor.py", line 297, in fit
+    self.column_transformer.fit(X, y)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/compose/_column_transformer.py", line 934, in fit
+    self.fit_transform(X, y=y, **params)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/compose/_column_transformer.py", line 996, in fit_transform
+    result = self._call_func_on_transformers(
+        X,
+    ...<3 lines>...
+        routed_params=routed_params,
+    )
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/compose/_column_transformer.py", line 897, in _call_func_on_transformers
+    return Parallel(n_jobs=self.n_jobs)(jobs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/parallel.py", line 82, in __call__
+    return super().__call__(iterable_with_config_and_warning_filters)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/joblib/parallel.py", line 1986, in __call__
+    return output if self.return_generator else list(output)
+                                                ~~~~^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/joblib/parallel.py", line 1914, in _get_sequential_output
+    res = func(*args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/parallel.py", line 147, in __call__
+    return self.function(*args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/pipeline.py", line 1540, in _fit_transform_one
+    res = transformer.fit_transform(X, y, **params.get("fit_transform", {}))
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/pipeline.py", line 731, in fit_transform
+    return last_step.fit_transform(
+           ~~~~~~~~~~~~~~~~~~~~~~~^
+        Xt, y, **last_step_params["fit_transform"]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/base.py", line 897, in fit_transform
+    return self.fit(X, y, **fit_params).transform(X)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/pretab/transformers/ple/ple.py", line 84, in fit
+    self.conditions_.append(tree_to_code(dt, ["feature"]))
+                            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/pretab/transformers/ple/tree_to_code.py", line 55, in tree_to_code
+    recurse(0, 1, 0)
+    ~~~~~~~^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/pretab/transformers/ple/tree_to_code.py", line 52, in recurse
+    my_list.append(pathto[parent])
+                   ~~~~~~^^^^^^^^
+KeyError: 0
+2026-06-01 17:00:33  DEBUG      [mambular] VRAM livre após cleanup: 8.1 GB
+2026-06-01 17:00:33  DEBUG      [mambular] pós-GC  |  RAM 29.7/32.8 GB (91%)  SWAP 4.3/4.3 GB
+2026-06-01 17:00:33  DEBUG      [lightgbm] já computado — pulando
+2026-06-01 17:00:33  DEBUG      [catboost] já computado — pulando
+2026-06-01 17:00:33  DEBUG      [xgboost] já computado — pulando
+2026-06-01 17:00:33  DEBUG      [autogluon_default] já computado — pulando
+2026-06-01 17:00:33  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-01 17:00:33  INFO     =======================================================
+2026-06-01 17:00:33  INFO     DATASET: Diabetes130US  (task_id=363630, regime=grande, n=71518)
+2026-06-01 17:00:34  DEBUG      Carregado: train=50062  test=21456  feats=47
+2026-06-01 17:00:34  INFO       [mambular] iniciando...  |  RAM 29.7/32.8 GB (91%)  SWAP 4.3/4.3 GB  VRAM 3.7/12.3 GB
+2026-06-01 19:38:46  DEBUG      [mambular] best_params={'d_model': 16, 'n_layers': 3, 'dropout': 0.3875664116805573, 'lr': 0.003946212980759096, 'numerical_preprocessing': 'quantile'}
+2026-06-01 20:02:33  INFO       [mambular] OK  AUC=0.6524  ACC=0.9120  G-Mean=0.0000  CE=0.2854  t=10919s
+2026-06-01 20:02:33  DEBUG      [mambular] VRAM livre após cleanup: 10.3 GB
+2026-06-01 20:02:33  DEBUG      [mambular] pós-GC  |  RAM 21.3/32.8 GB (65%)  SWAP 4.0/4.3 GB
+2026-06-01 20:02:33  DEBUG      [lightgbm] já computado — pulando
+2026-06-01 20:02:33  DEBUG      [catboost] já computado — pulando
+2026-06-01 20:02:33  DEBUG      [xgboost] já computado — pulando
+2026-06-01 20:02:33  DEBUG      [autogluon_default] já computado — pulando
+2026-06-01 20:02:33  INFO       [autogluon_extreme] iniciando...  |  RAM 21.3/32.8 GB (65%)  SWAP 4.0/4.3 GB  VRAM 1.3/12.3 GB
+2026-06-01 21:31:45  INFO       [autogluon_extreme] OK  AUC=0.6844  ACC=0.9120  G-Mean=0.0000  CE=0.2791  t=5352s
+2026-06-01 21:31:45  DEBUG      [autogluon_extreme] pós-GC  |  RAM 23.2/32.8 GB (71%)  SWAP 4.3/4.3 GB
+2026-06-01 21:31:45  INFO     =======================================================
+2026-06-01 21:31:45  INFO     DATASET: SDSS17  (task_id=363699, regime=grande, n=78053)
+2026-06-01 21:31:46  DEBUG      Carregado: train=54637  test=23416  feats=11
+2026-06-01 21:31:46  INFO       [mambular] iniciando...  |  RAM 23.1/32.8 GB (71%)  SWAP 4.3/4.3 GB  VRAM 1.3/12.3 GB
+2026-06-01 22:04:36  DEBUG      [mambular] best_params={'d_model': 32, 'n_layers': 2, 'dropout': 0.35403628889802274, 'lr': 0.00010838581269344756, 'numerical_preprocessing': 'ple'}
+2026-06-01 22:12:51  INFO       [mambular] OK  AUC=0.9946  ACC=0.9717  G-Mean=0.9632  CE=0.0935  t=2465s
+2026-06-01 22:12:51  DEBUG      [mambular] VRAM livre após cleanup: 10.3 GB
+2026-06-01 22:12:51  DEBUG      [mambular] pós-GC  |  RAM 23.1/32.8 GB (70%)  SWAP 4.3/4.3 GB
+2026-06-01 22:12:51  DEBUG      [lightgbm] já computado — pulando
+2026-06-01 22:12:51  DEBUG      [catboost] já computado — pulando
+2026-06-01 22:12:51  DEBUG      [xgboost] já computado — pulando
+2026-06-01 22:12:51  DEBUG      [autogluon_default] já computado — pulando
+2026-06-01 22:12:51  INFO       [autogluon_extreme] iniciando...  |  RAM 23.1/32.8 GB (70%)  SWAP 4.3/4.3 GB  VRAM 1.3/12.3 GB
+2026-06-02 10:52:54  INFO     Iniciando runner  |  pares já computados: 174  |  RAM 13.5/32.8 GB (41%)  SWAP 0.0/4.3 GB
+2026-06-02 10:52:54  INFO     =======================================================
+2026-06-02 10:52:54  INFO     DATASET: blood-transfusion-service-center  (task_id=363621, regime=pequeno, n=748)
+2026-06-02 10:52:56  DEBUG      Carregado: train=523  test=225  feats=4
+2026-06-02 10:52:56  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:52:56  INFO     =======================================================
+2026-06-02 10:52:56  INFO     DATASET: diabetes  (task_id=363629, regime=pequeno, n=768)
+2026-06-02 10:52:56  DEBUG      Carregado: train=537  test=231  feats=8
+2026-06-02 10:52:56  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:52:56  INFO     =======================================================
+2026-06-02 10:52:56  INFO     DATASET: anneal  (task_id=363614, regime=pequeno, n=898)
+2026-06-02 10:52:56  DEBUG      Carregado: train=628  test=270  feats=38
+2026-06-02 10:52:56  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:52:56  INFO     =======================================================
+2026-06-02 10:52:56  INFO     DATASET: credit-g  (task_id=363626, regime=medio, n=1000)
+2026-06-02 10:52:56  DEBUG      Carregado: train=700  test=300  feats=20
+2026-06-02 10:52:56  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:52:56  INFO     =======================================================
+2026-06-02 10:52:56  INFO     DATASET: maternal_health_risk  (task_id=363685, regime=medio, n=1014)
+2026-06-02 10:52:56  DEBUG      Carregado: train=709  test=305  feats=6
+2026-06-02 10:52:56  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:52:56  INFO     =======================================================
+2026-06-02 10:52:56  INFO     DATASET: qsar-biodeg  (task_id=363696, regime=medio, n=1054)
+2026-06-02 10:52:56  DEBUG      Carregado: train=737  test=317  feats=41
+2026-06-02 10:52:56  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:52:56  INFO     =======================================================
+2026-06-02 10:52:56  INFO     DATASET: website_phishing  (task_id=363707, regime=medio, n=1353)
+2026-06-02 10:52:56  DEBUG      Carregado: train=947  test=406  feats=9
+2026-06-02 10:52:56  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:52:56  INFO     =======================================================
+2026-06-02 10:52:56  INFO     DATASET: Fitness_Club  (task_id=363671, regime=medio, n=1500)
+2026-06-02 10:52:56  DEBUG      Carregado: train=1050  test=450  feats=6
+2026-06-02 10:52:56  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:52:56  INFO     =======================================================
+2026-06-02 10:52:56  INFO     DATASET: MIC  (task_id=363711, regime=medio, n=1699)
+2026-06-02 10:52:56  DEBUG      Carregado: train=1189  test=510  feats=111
+2026-06-02 10:52:56  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:52:56  INFO     =======================================================
+2026-06-02 10:52:56  INFO     DATASET: Is-this-a-good-customer  (task_id=363682, regime=medio, n=1723)
+2026-06-02 10:52:56  DEBUG      Carregado: train=1206  test=517  feats=13
+2026-06-02 10:52:56  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:52:56  INFO     =======================================================
+2026-06-02 10:52:56  INFO     DATASET: Marketing_Campaign  (task_id=363684, regime=medio, n=2240)
+2026-06-02 10:52:56  DEBUG      Carregado: train=1568  test=672  feats=25
+2026-06-02 10:52:56  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:52:56  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:52:56  INFO     =======================================================
+2026-06-02 10:52:56  INFO     DATASET: seismic-bumps  (task_id=363700, regime=medio, n=2584)
+2026-06-02 10:52:57  DEBUG      Carregado: train=1808  test=776  feats=15
+2026-06-02 10:52:57  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:52:57  INFO     =======================================================
+2026-06-02 10:52:57  INFO     DATASET: splice  (task_id=363702, regime=medio, n=3190)
+2026-06-02 10:52:57  DEBUG      Carregado: train=2233  test=957  feats=60
+2026-06-02 10:52:57  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:52:57  INFO     =======================================================
+2026-06-02 10:52:57  INFO     DATASET: students_dropout_and_academic_success  (task_id=363704, regime=medio, n=4424)
+2026-06-02 10:52:57  DEBUG      Carregado: train=3096  test=1328  feats=36
+2026-06-02 10:52:57  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:52:57  INFO     =======================================================
+2026-06-02 10:52:57  INFO     DATASET: churn  (task_id=363623, regime=medio, n=5000)
+2026-06-02 10:52:57  DEBUG      Carregado: train=3500  test=1500  feats=19
+2026-06-02 10:52:57  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:52:57  INFO     =======================================================
+2026-06-02 10:52:57  INFO     DATASET: polish_companies_bankruptcy  (task_id=363694, regime=medio, n=5910)
+2026-06-02 10:52:57  DEBUG      Carregado: train=4137  test=1773  feats=64
+2026-06-02 10:52:57  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:52:57  INFO     =======================================================
+2026-06-02 10:52:57  INFO     DATASET: taiwanese_bankruptcy_prediction  (task_id=363706, regime=medio, n=6819)
+2026-06-02 10:52:57  DEBUG      Carregado: train=4773  test=2046  feats=94
+2026-06-02 10:52:57  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:52:57  INFO     =======================================================
+2026-06-02 10:52:57  INFO     DATASET: heloc  (task_id=363676, regime=grande, n=10459)
+2026-06-02 10:52:57  DEBUG      Carregado: train=7321  test=3138  feats=23
+2026-06-02 10:52:57  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:52:57  INFO     =======================================================
+2026-06-02 10:52:57  INFO     DATASET: jm1  (task_id=363712, regime=grande, n=10885)
+2026-06-02 10:52:57  DEBUG      Carregado: train=7619  test=3266  feats=21
+2026-06-02 10:52:57  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:52:57  INFO     =======================================================
+2026-06-02 10:52:57  INFO     DATASET: E-CommereShippingData  (task_id=363632, regime=grande, n=10999)
+2026-06-02 10:52:57  DEBUG      Carregado: train=7699  test=3300  feats=10
+2026-06-02 10:52:57  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:52:57  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:52:57  INFO     =======================================================
+2026-06-02 10:52:57  INFO     DATASET: online_shoppers_intention  (task_id=363691, regime=grande, n=12330)
+2026-06-02 10:52:57  DEBUG      Carregado: train=8631  test=3699  feats=17
+2026-06-02 10:52:57  INFO       [mambular] iniciando...  |  RAM 13.8/32.8 GB (42%)  SWAP 0.0/4.3 GB  VRAM 1.4/12.3 GB
+2026-06-02 10:53:01  ERROR      [mambular] ERRO após 3s: SimpleImputer does not support data with dtype bool. Please provide either a numeric array (with a floating point or integer dtype) or categorical data represented either as an array with integer dtype or an array of string values with an object dtype.
+Traceback (most recent call last):
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/runner.py", line 280, in run
+    best_params = tune_model(model_name, X_train, y_train,
+                             OPTUNA_N_TRIALS, OPTUNA_CV_FOLDS, SEED)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 189, in tune_model
+    return _TUNE_FNS[model_name](X_train, y_train, n_trials, cv_folds, seed)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 114, in tune_mambular
+    study.optimize(objective, n_trials=n_trials, show_progress_bar=False)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/study.py", line 490, in optimize
+    _optimize(
+    ~~~~~~~~~^
+        study=self,
+        ^^^^^^^^^^^
+    ...<7 lines>...
+        show_progress_bar=show_progress_bar,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 68, in _optimize
+    _optimize_sequential(
+    ~~~~~~~~~~~~~~~~~~~~^
+        study,
+        ^^^^^^
+    ...<8 lines>...
+        progress_bar=progress_bar,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 165, in _optimize_sequential
+    frozen_trial_id = _run_trial(study, func, catch)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 263, in _run_trial
+    raise func_err
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 206, in _run_trial
+    value_or_values = func(trial)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 111, in objective
+    return _mambular_cv(params, X_train, y_train, cv_folds, seed)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 82, in _mambular_cv
+    model.fit(X_tr, y_tr, max_epochs=20, batch_size=32)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/models/utils/sklearn_base_classifier.py", line 198, in fit
+    return super().fit(
+           ~~~~~~~~~~~^
+        X=X,
+        ^^^^
+    ...<24 lines>...
+        **trainer_kwargs,
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/models/utils/sklearn_parent.py", line 334, in fit
+    self._build_model(
+    ~~~~~~~~~~~~~~~~~^
+        X=X,
+        ^^^^
+    ...<17 lines>...
+        val_metrics=val_metrics,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/models/utils/sklearn_parent.py", line 186, in _build_model
+    self.data_module.preprocess_data(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        X,
+        ^^
+    ...<6 lines>...
+        random_state=random_state,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/data_utils/datamodule.py", line 173, in preprocess_data
+    self.preprocessor.fit(combined_X, combined_y, combined_embeddings)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/pretab/preprocessor.py", line 297, in fit
+    self.column_transformer.fit(X, y)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/compose/_column_transformer.py", line 934, in fit
+    self.fit_transform(X, y=y, **params)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/compose/_column_transformer.py", line 996, in fit_transform
+    result = self._call_func_on_transformers(
+        X,
+    ...<3 lines>...
+        routed_params=routed_params,
+    )
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/compose/_column_transformer.py", line 897, in _call_func_on_transformers
+    return Parallel(n_jobs=self.n_jobs)(jobs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/parallel.py", line 82, in __call__
+    return super().__call__(iterable_with_config_and_warning_filters)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/joblib/parallel.py", line 1986, in __call__
+    return output if self.return_generator else list(output)
+                                                ~~~~^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/joblib/parallel.py", line 1914, in _get_sequential_output
+    res = func(*args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/parallel.py", line 147, in __call__
+    return self.function(*args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/pipeline.py", line 1540, in _fit_transform_one
+    res = transformer.fit_transform(X, y, **params.get("fit_transform", {}))
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/pipeline.py", line 719, in fit_transform
+    Xt = self._fit(X, y, routed_params)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/pipeline.py", line 589, in _fit
+    X, fitted_transformer = fit_transform_one_cached(
+                            ~~~~~~~~~~~~~~~~~~~~~~~~^
+        cloned_transformer,
+        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        params=step_params,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/joblib/memory.py", line 326, in __call__
+    return self.func(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/pipeline.py", line 1540, in _fit_transform_one
+    res = transformer.fit_transform(X, y, **params.get("fit_transform", {}))
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/base.py", line 897, in fit_transform
+    return self.fit(X, y, **fit_params).transform(X)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/impute/_base.py", line 452, in fit
+    X = self._validate_input(X, in_fit=True)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/impute/_base.py", line 387, in _validate_input
+    raise ValueError(
+    ...<6 lines>...
+    )
+ValueError: SimpleImputer does not support data with dtype bool. Please provide either a numeric array (with a floating point or integer dtype) or categorical data represented either as an array with integer dtype or an array of string values with an object dtype.
+2026-06-02 10:53:01  DEBUG      [mambular] VRAM livre após cleanup: 10.2 GB
+2026-06-02 10:53:01  DEBUG      [mambular] pós-GC  |  RAM 14.0/32.8 GB (43%)  SWAP 0.0/4.3 GB
+2026-06-02 10:53:01  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:53:01  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:53:01  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:53:01  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:53:01  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:53:01  INFO     =======================================================
+2026-06-02 10:53:01  INFO     DATASET: in_vehicle_coupon_recommendation  (task_id=363681, regime=grande, n=12684)
+2026-06-02 10:53:01  DEBUG      Carregado: train=8878  test=3806  feats=24
+2026-06-02 10:53:01  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:53:01  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:53:01  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:53:01  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:53:01  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:53:01  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:53:01  INFO     =======================================================
+2026-06-02 10:53:01  INFO     DATASET: HR_Analytics_Job_Change_of_Data_Scientists  (task_id=363679, regime=grande, n=19158)
+2026-06-02 10:53:02  DEBUG      Carregado: train=13410  test=5748  feats=12
+2026-06-02 10:53:02  INFO       [mambular] iniciando...  |  RAM 14.0/32.8 GB (43%)  SWAP 0.0/4.3 GB  VRAM 1.4/12.3 GB
+2026-06-02 10:53:02  ERROR      [mambular] ERRO após 0s: '<' not supported between instances of 'str' and 'NoneType'
+Traceback (most recent call last):
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/runner.py", line 280, in run
+    best_params = tune_model(model_name, X_train, y_train,
+                             OPTUNA_N_TRIALS, OPTUNA_CV_FOLDS, SEED)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 189, in tune_model
+    return _TUNE_FNS[model_name](X_train, y_train, n_trials, cv_folds, seed)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 114, in tune_mambular
+    study.optimize(objective, n_trials=n_trials, show_progress_bar=False)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/study.py", line 490, in optimize
+    _optimize(
+    ~~~~~~~~~^
+        study=self,
+        ^^^^^^^^^^^
+    ...<7 lines>...
+        show_progress_bar=show_progress_bar,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 68, in _optimize
+    _optimize_sequential(
+    ~~~~~~~~~~~~~~~~~~~~^
+        study,
+        ^^^^^^
+    ...<8 lines>...
+        progress_bar=progress_bar,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 165, in _optimize_sequential
+    frozen_trial_id = _run_trial(study, func, catch)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 263, in _run_trial
+    raise func_err
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 206, in _run_trial
+    value_or_values = func(trial)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 111, in objective
+    return _mambular_cv(params, X_train, y_train, cv_folds, seed)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 82, in _mambular_cv
+    model.fit(X_tr, y_tr, max_epochs=20, batch_size=32)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/models/utils/sklearn_base_classifier.py", line 198, in fit
+    return super().fit(
+           ~~~~~~~~~~~^
+        X=X,
+        ^^^^
+    ...<24 lines>...
+        **trainer_kwargs,
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/models/utils/sklearn_parent.py", line 334, in fit
+    self._build_model(
+    ~~~~~~~~~~~~~~~~~^
+        X=X,
+        ^^^^
+    ...<17 lines>...
+        val_metrics=val_metrics,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/models/utils/sklearn_parent.py", line 186, in _build_model
+    self.data_module.preprocess_data(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        X,
+        ^^
+    ...<6 lines>...
+        random_state=random_state,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/data_utils/datamodule.py", line 173, in preprocess_data
+    self.preprocessor.fit(combined_X, combined_y, combined_embeddings)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/pretab/preprocessor.py", line 297, in fit
+    self.column_transformer.fit(X, y)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/compose/_column_transformer.py", line 934, in fit
+    self.fit_transform(X, y=y, **params)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/compose/_column_transformer.py", line 996, in fit_transform
+    result = self._call_func_on_transformers(
+        X,
+    ...<3 lines>...
+        routed_params=routed_params,
+    )
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/compose/_column_transformer.py", line 897, in _call_func_on_transformers
+    return Parallel(n_jobs=self.n_jobs)(jobs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/parallel.py", line 82, in __call__
+    return super().__call__(iterable_with_config_and_warning_filters)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/joblib/parallel.py", line 1986, in __call__
+    return output if self.return_generator else list(output)
+                                                ~~~~^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/joblib/parallel.py", line 1914, in _get_sequential_output
+    res = func(*args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/parallel.py", line 147, in __call__
+    return self.function(*args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/pipeline.py", line 1540, in _fit_transform_one
+    res = transformer.fit_transform(X, y, **params.get("fit_transform", {}))
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/pipeline.py", line 731, in fit_transform
+    return last_step.fit_transform(
+           ~~~~~~~~~~~~~~~~~~~~~~~^
+        Xt, y, **last_step_params["fit_transform"]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/base.py", line 897, in fit_transform
+    return self.fit(X, y, **fit_params).transform(X)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/pretab/transformers/utils/continuous_ordinal.py", line 31, in fit
+    {category: i + 1 for i, category in enumerate(np.unique(col))}
+                                                  ~~~~~~~~~^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/numpy/lib/_arraysetops_impl.py", line 291, in unique
+    ret = _unique1d(ar, return_index, return_inverse, return_counts,
+                    equal_nan=equal_nan, inverse_shape=ar.shape, axis=None)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/numpy/lib/_arraysetops_impl.py", line 358, in _unique1d
+    ar.sort()
+    ~~~~~~~^^
+TypeError: '<' not supported between instances of 'str' and 'NoneType'
+2026-06-02 10:53:02  DEBUG      [mambular] VRAM livre após cleanup: 10.2 GB
+2026-06-02 10:53:02  DEBUG      [mambular] pós-GC  |  RAM 14.1/32.8 GB (43%)  SWAP 0.0/4.3 GB
+2026-06-02 10:53:02  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:53:02  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:53:02  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:53:02  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:53:02  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:53:02  INFO     =======================================================
+2026-06-02 10:53:02  INFO     DATASET: credit_card_clients_default  (task_id=363627, regime=grande, n=30000)
+2026-06-02 10:53:03  DEBUG      Carregado: train=21000  test=9000  feats=23
+2026-06-02 10:53:03  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:53:03  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:53:03  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:53:03  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:53:03  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:53:03  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:53:03  INFO     =======================================================
+2026-06-02 10:53:03  INFO     DATASET: Amazon_employee_access  (task_id=363613, regime=grande, n=32769)
+2026-06-02 10:53:03  DEBUG      Carregado: train=22938  test=9831  feats=9
+2026-06-02 10:53:03  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:53:03  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:53:03  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:53:03  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:53:03  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:53:03  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:53:03  INFO     =======================================================
+2026-06-02 10:53:03  INFO     DATASET: bank-marketing  (task_id=363618, regime=grande, n=45211)
+2026-06-02 10:53:03  DEBUG      Carregado: train=31647  test=13564  feats=13
+2026-06-02 10:53:03  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:53:03  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:53:03  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:53:03  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:53:03  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:53:03  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:53:03  INFO     =======================================================
+2026-06-02 10:53:03  INFO     DATASET: APSFailure  (task_id=363616, regime=grande, n=76000)
+2026-06-02 10:53:03  DEBUG      Carregado: train=53200  test=22800  feats=170
+2026-06-02 10:53:03  INFO       [mambular] iniciando...  |  RAM 14.6/32.8 GB (44%)  SWAP 0.0/4.3 GB  VRAM 1.4/12.3 GB
+2026-06-02 10:53:06  ERROR      [mambular] ERRO após 3s: 0
+Traceback (most recent call last):
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/runner.py", line 280, in run
+    best_params = tune_model(model_name, X_train, y_train,
+                             OPTUNA_N_TRIALS, OPTUNA_CV_FOLDS, SEED)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 189, in tune_model
+    return _TUNE_FNS[model_name](X_train, y_train, n_trials, cv_folds, seed)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 114, in tune_mambular
+    study.optimize(objective, n_trials=n_trials, show_progress_bar=False)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/study.py", line 490, in optimize
+    _optimize(
+    ~~~~~~~~~^
+        study=self,
+        ^^^^^^^^^^^
+    ...<7 lines>...
+        show_progress_bar=show_progress_bar,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 68, in _optimize
+    _optimize_sequential(
+    ~~~~~~~~~~~~~~~~~~~~^
+        study,
+        ^^^^^^
+    ...<8 lines>...
+        progress_bar=progress_bar,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 165, in _optimize_sequential
+    frozen_trial_id = _run_trial(study, func, catch)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 263, in _run_trial
+    raise func_err
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 206, in _run_trial
+    value_or_values = func(trial)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 111, in objective
+    return _mambular_cv(params, X_train, y_train, cv_folds, seed)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 82, in _mambular_cv
+    model.fit(X_tr, y_tr, max_epochs=20, batch_size=32)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/models/utils/sklearn_base_classifier.py", line 198, in fit
+    return super().fit(
+           ~~~~~~~~~~~^
+        X=X,
+        ^^^^
+    ...<24 lines>...
+        **trainer_kwargs,
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/models/utils/sklearn_parent.py", line 334, in fit
+    self._build_model(
+    ~~~~~~~~~~~~~~~~~^
+        X=X,
+        ^^^^
+    ...<17 lines>...
+        val_metrics=val_metrics,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/models/utils/sklearn_parent.py", line 186, in _build_model
+    self.data_module.preprocess_data(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        X,
+        ^^
+    ...<6 lines>...
+        random_state=random_state,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/data_utils/datamodule.py", line 173, in preprocess_data
+    self.preprocessor.fit(combined_X, combined_y, combined_embeddings)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/pretab/preprocessor.py", line 297, in fit
+    self.column_transformer.fit(X, y)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/compose/_column_transformer.py", line 934, in fit
+    self.fit_transform(X, y=y, **params)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/compose/_column_transformer.py", line 996, in fit_transform
+    result = self._call_func_on_transformers(
+        X,
+    ...<3 lines>...
+        routed_params=routed_params,
+    )
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/compose/_column_transformer.py", line 897, in _call_func_on_transformers
+    return Parallel(n_jobs=self.n_jobs)(jobs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/parallel.py", line 82, in __call__
+    return super().__call__(iterable_with_config_and_warning_filters)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/joblib/parallel.py", line 1986, in __call__
+    return output if self.return_generator else list(output)
+                                                ~~~~^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/joblib/parallel.py", line 1914, in _get_sequential_output
+    res = func(*args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/parallel.py", line 147, in __call__
+    return self.function(*args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/pipeline.py", line 1540, in _fit_transform_one
+    res = transformer.fit_transform(X, y, **params.get("fit_transform", {}))
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/pipeline.py", line 731, in fit_transform
+    return last_step.fit_transform(
+           ~~~~~~~~~~~~~~~~~~~~~~~^
+        Xt, y, **last_step_params["fit_transform"]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/base.py", line 897, in fit_transform
+    return self.fit(X, y, **fit_params).transform(X)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/pretab/transformers/ple/ple.py", line 84, in fit
+    self.conditions_.append(tree_to_code(dt, ["feature"]))
+                            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/pretab/transformers/ple/tree_to_code.py", line 55, in tree_to_code
+    recurse(0, 1, 0)
+    ~~~~~~~^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/pretab/transformers/ple/tree_to_code.py", line 52, in recurse
+    my_list.append(pathto[parent])
+                   ~~~~~~^^^^^^^^
+KeyError: 0
+2026-06-02 10:53:06  DEBUG      [mambular] VRAM livre após cleanup: 10.2 GB
+2026-06-02 10:53:07  DEBUG      [mambular] pós-GC  |  RAM 14.6/32.8 GB (44%)  SWAP 0.0/4.3 GB
+2026-06-02 10:53:07  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:53:07  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:53:07  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:53:07  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:53:07  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:53:07  INFO     =======================================================
+2026-06-02 10:53:07  INFO     DATASET: Diabetes130US  (task_id=363630, regime=grande, n=71518)
+2026-06-02 10:53:07  DEBUG      Carregado: train=50062  test=21456  feats=47
+2026-06-02 10:53:07  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:53:07  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:53:07  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:53:07  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:53:07  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:53:07  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:53:07  INFO     =======================================================
+2026-06-02 10:53:07  INFO     DATASET: SDSS17  (task_id=363699, regime=grande, n=78053)
+2026-06-02 10:53:07  DEBUG      Carregado: train=54637  test=23416  feats=11
+2026-06-02 10:53:07  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:53:07  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:53:07  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:53:07  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:53:07  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:53:07  INFO       [autogluon_extreme] iniciando...  |  RAM 14.2/32.8 GB (43%)  SWAP 0.0/4.3 GB  VRAM 1.4/12.3 GB
+2026-06-02 10:54:37  INFO     Iniciando runner  |  pares já computados: 174  |  RAM 12.5/32.8 GB (38%)  SWAP 0.0/4.3 GB
+2026-06-02 10:54:37  INFO     =======================================================
+2026-06-02 10:54:37  INFO     DATASET: blood-transfusion-service-center  (task_id=363621, regime=pequeno, n=748)
+2026-06-02 10:54:37  DEBUG      Carregado: train=523  test=225  feats=4
+2026-06-02 10:54:37  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:54:37  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:54:37  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:54:37  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:54:37  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:54:37  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:54:37  INFO     =======================================================
+2026-06-02 10:54:37  INFO     DATASET: diabetes  (task_id=363629, regime=pequeno, n=768)
+2026-06-02 10:54:38  DEBUG      Carregado: train=537  test=231  feats=8
+2026-06-02 10:54:38  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:54:38  INFO     =======================================================
+2026-06-02 10:54:38  INFO     DATASET: anneal  (task_id=363614, regime=pequeno, n=898)
+2026-06-02 10:54:38  DEBUG      Carregado: train=628  test=270  feats=38
+2026-06-02 10:54:38  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:54:38  INFO     =======================================================
+2026-06-02 10:54:38  INFO     DATASET: credit-g  (task_id=363626, regime=medio, n=1000)
+2026-06-02 10:54:38  DEBUG      Carregado: train=700  test=300  feats=20
+2026-06-02 10:54:38  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:54:38  INFO     =======================================================
+2026-06-02 10:54:38  INFO     DATASET: maternal_health_risk  (task_id=363685, regime=medio, n=1014)
+2026-06-02 10:54:38  DEBUG      Carregado: train=709  test=305  feats=6
+2026-06-02 10:54:38  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:54:38  INFO     =======================================================
+2026-06-02 10:54:38  INFO     DATASET: qsar-biodeg  (task_id=363696, regime=medio, n=1054)
+2026-06-02 10:54:38  DEBUG      Carregado: train=737  test=317  feats=41
+2026-06-02 10:54:38  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:54:38  INFO     =======================================================
+2026-06-02 10:54:38  INFO     DATASET: website_phishing  (task_id=363707, regime=medio, n=1353)
+2026-06-02 10:54:38  DEBUG      Carregado: train=947  test=406  feats=9
+2026-06-02 10:54:38  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:54:38  INFO     =======================================================
+2026-06-02 10:54:38  INFO     DATASET: Fitness_Club  (task_id=363671, regime=medio, n=1500)
+2026-06-02 10:54:38  DEBUG      Carregado: train=1050  test=450  feats=6
+2026-06-02 10:54:38  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:54:38  INFO     =======================================================
+2026-06-02 10:54:38  INFO     DATASET: MIC  (task_id=363711, regime=medio, n=1699)
+2026-06-02 10:54:38  DEBUG      Carregado: train=1189  test=510  feats=111
+2026-06-02 10:54:38  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:54:38  INFO     =======================================================
+2026-06-02 10:54:38  INFO     DATASET: Is-this-a-good-customer  (task_id=363682, regime=medio, n=1723)
+2026-06-02 10:54:38  DEBUG      Carregado: train=1206  test=517  feats=13
+2026-06-02 10:54:38  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:54:38  INFO     =======================================================
+2026-06-02 10:54:38  INFO     DATASET: Marketing_Campaign  (task_id=363684, regime=medio, n=2240)
+2026-06-02 10:54:38  DEBUG      Carregado: train=1568  test=672  feats=25
+2026-06-02 10:54:38  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:54:38  INFO     =======================================================
+2026-06-02 10:54:38  INFO     DATASET: seismic-bumps  (task_id=363700, regime=medio, n=2584)
+2026-06-02 10:54:38  DEBUG      Carregado: train=1808  test=776  feats=15
+2026-06-02 10:54:38  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:54:38  INFO     =======================================================
+2026-06-02 10:54:38  INFO     DATASET: splice  (task_id=363702, regime=medio, n=3190)
+2026-06-02 10:54:38  DEBUG      Carregado: train=2233  test=957  feats=60
+2026-06-02 10:54:38  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:54:38  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:54:38  INFO     =======================================================
+2026-06-02 10:54:38  INFO     DATASET: students_dropout_and_academic_success  (task_id=363704, regime=medio, n=4424)
+2026-06-02 10:54:39  DEBUG      Carregado: train=3096  test=1328  feats=36
+2026-06-02 10:54:39  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:54:39  INFO     =======================================================
+2026-06-02 10:54:39  INFO     DATASET: churn  (task_id=363623, regime=medio, n=5000)
+2026-06-02 10:54:39  DEBUG      Carregado: train=3500  test=1500  feats=19
+2026-06-02 10:54:39  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:54:39  INFO     =======================================================
+2026-06-02 10:54:39  INFO     DATASET: polish_companies_bankruptcy  (task_id=363694, regime=medio, n=5910)
+2026-06-02 10:54:39  DEBUG      Carregado: train=4137  test=1773  feats=64
+2026-06-02 10:54:39  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:54:39  INFO     =======================================================
+2026-06-02 10:54:39  INFO     DATASET: taiwanese_bankruptcy_prediction  (task_id=363706, regime=medio, n=6819)
+2026-06-02 10:54:39  DEBUG      Carregado: train=4773  test=2046  feats=94
+2026-06-02 10:54:39  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:54:39  INFO     =======================================================
+2026-06-02 10:54:39  INFO     DATASET: heloc  (task_id=363676, regime=grande, n=10459)
+2026-06-02 10:54:39  DEBUG      Carregado: train=7321  test=3138  feats=23
+2026-06-02 10:54:39  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:54:39  INFO     =======================================================
+2026-06-02 10:54:39  INFO     DATASET: jm1  (task_id=363712, regime=grande, n=10885)
+2026-06-02 10:54:39  DEBUG      Carregado: train=7619  test=3266  feats=21
+2026-06-02 10:54:39  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:54:39  INFO     =======================================================
+2026-06-02 10:54:39  INFO     DATASET: E-CommereShippingData  (task_id=363632, regime=grande, n=10999)
+2026-06-02 10:54:39  DEBUG      Carregado: train=7699  test=3300  feats=10
+2026-06-02 10:54:39  DEBUG      [mambular] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [catboost] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [xgboost] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 10:54:39  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 10:54:39  INFO     =======================================================
+2026-06-02 10:54:39  INFO     DATASET: online_shoppers_intention  (task_id=363691, regime=grande, n=12330)
+2026-06-02 10:54:39  DEBUG      Carregado: train=8631  test=3699  feats=17
+2026-06-02 10:54:39  INFO       [mambular] iniciando...  |  RAM 12.9/32.8 GB (40%)  SWAP 0.0/4.3 GB  VRAM 1.4/12.3 GB
+2026-06-02 11:01:26  DEBUG      [mambular] best_params={'d_model': 16, 'n_layers': 3, 'dropout': 0.36599697090570255, 'lr': 0.0010401663679887319, 'numerical_preprocessing': 'ple'}
+2026-06-02 11:03:18  INFO       [mambular] OK  AUC=0.9294  ACC=0.8978  G-Mean=0.7498  CE=0.2305  t=519s
+2026-06-02 11:03:19  DEBUG      [mambular] VRAM livre após cleanup: 10.1 GB
+2026-06-02 11:03:19  DEBUG      [mambular] pós-GC  |  RAM 18.2/32.8 GB (56%)  SWAP 0.0/4.3 GB
+2026-06-02 11:03:19  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:03:19  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:03:19  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:03:19  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:03:19  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:03:19  INFO     =======================================================
+2026-06-02 11:03:19  INFO     DATASET: in_vehicle_coupon_recommendation  (task_id=363681, regime=grande, n=12684)
+2026-06-02 11:03:19  DEBUG      Carregado: train=8878  test=3806  feats=24
+2026-06-02 11:03:19  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:03:19  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:03:19  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:03:19  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:03:19  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:03:19  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:03:19  INFO     =======================================================
+2026-06-02 11:03:19  INFO     DATASET: HR_Analytics_Job_Change_of_Data_Scientists  (task_id=363679, regime=grande, n=19158)
+2026-06-02 11:03:19  DEBUG      Carregado: train=13410  test=5748  feats=12
+2026-06-02 11:03:19  INFO       [mambular] iniciando...  |  RAM 18.1/32.8 GB (55%)  SWAP 0.0/4.3 GB  VRAM 1.4/12.3 GB
+2026-06-02 11:11:44  DEBUG      [mambular] best_params={'d_model': 16, 'n_layers': 3, 'dropout': 0.3875664116805573, 'lr': 0.003946212980759096, 'numerical_preprocessing': 'quantile'}
+2026-06-02 11:12:49  INFO       [mambular] OK  AUC=0.7912  ACC=0.7825  G-Mean=0.6180  CE=0.4539  t=570s
+2026-06-02 11:12:50  DEBUG      [mambular] VRAM livre após cleanup: 9.7 GB
+2026-06-02 11:12:50  DEBUG      [mambular] pós-GC  |  RAM 17.3/32.8 GB (53%)  SWAP 4.2/4.3 GB
+2026-06-02 11:12:50  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:12:50  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:12:50  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:12:50  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:12:50  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:12:50  INFO     =======================================================
+2026-06-02 11:12:50  INFO     DATASET: credit_card_clients_default  (task_id=363627, regime=grande, n=30000)
+2026-06-02 11:12:50  DEBUG      Carregado: train=21000  test=9000  feats=23
+2026-06-02 11:12:50  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:12:50  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:12:50  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:12:50  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:12:50  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:12:50  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:12:50  INFO     =======================================================
+2026-06-02 11:12:50  INFO     DATASET: Amazon_employee_access  (task_id=363613, regime=grande, n=32769)
+2026-06-02 11:12:50  DEBUG      Carregado: train=22938  test=9831  feats=9
+2026-06-02 11:12:50  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:12:50  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:12:50  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:12:50  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:12:50  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:12:50  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:12:50  INFO     =======================================================
+2026-06-02 11:12:50  INFO     DATASET: bank-marketing  (task_id=363618, regime=grande, n=45211)
+2026-06-02 11:12:50  DEBUG      Carregado: train=31647  test=13564  feats=13
+2026-06-02 11:12:50  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:12:50  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:12:50  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:12:50  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:12:50  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:12:50  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:12:50  INFO     =======================================================
+2026-06-02 11:12:50  INFO     DATASET: APSFailure  (task_id=363616, regime=grande, n=76000)
+2026-06-02 11:12:51  DEBUG      Carregado: train=53200  test=22800  feats=170
+2026-06-02 11:12:51  INFO       [mambular] iniciando...  |  RAM 17.7/32.8 GB (54%)  SWAP 4.2/4.3 GB  VRAM 1.9/12.3 GB
+2026-06-02 11:12:54  ERROR      [mambular] ERRO após 3s: 0
+Traceback (most recent call last):
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/runner.py", line 280, in run
+    best_params = tune_model(model_name, X_train, y_train,
+                             OPTUNA_N_TRIALS, OPTUNA_CV_FOLDS, SEED)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 200, in tune_model
+    return _TUNE_FNS[model_name](X_train, y_train, n_trials, cv_folds, seed)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 125, in tune_mambular
+    study.optimize(objective, n_trials=n_trials, show_progress_bar=False)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/study.py", line 490, in optimize
+    _optimize(
+    ~~~~~~~~~^
+        study=self,
+        ^^^^^^^^^^^
+    ...<7 lines>...
+        show_progress_bar=show_progress_bar,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 68, in _optimize
+    _optimize_sequential(
+    ~~~~~~~~~~~~~~~~~~~~^
+        study,
+        ^^^^^^
+    ...<8 lines>...
+        progress_bar=progress_bar,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 165, in _optimize_sequential
+    frozen_trial_id = _run_trial(study, func, catch)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 263, in _run_trial
+    raise func_err
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/optuna/study/_optimize.py", line 206, in _run_trial
+    value_or_values = func(trial)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 122, in objective
+    return _mambular_cv(params, X_train, y_train, cv_folds, seed)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/experiments/models.py", line 93, in _mambular_cv
+    model.fit(X_tr, y_tr, max_epochs=20, batch_size=32)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/models/utils/sklearn_base_classifier.py", line 198, in fit
+    return super().fit(
+           ~~~~~~~~~~~^
+        X=X,
+        ^^^^
+    ...<24 lines>...
+        **trainer_kwargs,
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/models/utils/sklearn_parent.py", line 334, in fit
+    self._build_model(
+    ~~~~~~~~~~~~~~~~~^
+        X=X,
+        ^^^^
+    ...<17 lines>...
+        val_metrics=val_metrics,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/models/utils/sklearn_parent.py", line 186, in _build_model
+    self.data_module.preprocess_data(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        X,
+        ^^
+    ...<6 lines>...
+        random_state=random_state,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/deeptab/data_utils/datamodule.py", line 173, in preprocess_data
+    self.preprocessor.fit(combined_X, combined_y, combined_embeddings)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/pretab/preprocessor.py", line 297, in fit
+    self.column_transformer.fit(X, y)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/compose/_column_transformer.py", line 934, in fit
+    self.fit_transform(X, y=y, **params)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/compose/_column_transformer.py", line 996, in fit_transform
+    result = self._call_func_on_transformers(
+        X,
+    ...<3 lines>...
+        routed_params=routed_params,
+    )
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/compose/_column_transformer.py", line 897, in _call_func_on_transformers
+    return Parallel(n_jobs=self.n_jobs)(jobs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/parallel.py", line 82, in __call__
+    return super().__call__(iterable_with_config_and_warning_filters)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/joblib/parallel.py", line 1986, in __call__
+    return output if self.return_generator else list(output)
+                                                ~~~~^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/joblib/parallel.py", line 1914, in _get_sequential_output
+    res = func(*args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/parallel.py", line 147, in __call__
+    return self.function(*args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/pipeline.py", line 1540, in _fit_transform_one
+    res = transformer.fit_transform(X, y, **params.get("fit_transform", {}))
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/pipeline.py", line 731, in fit_transform
+    return last_step.fit_transform(
+           ~~~~~~~~~~~~~~~~~~~~~~~^
+        Xt, y, **last_step_params["fit_transform"]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/sklearn/base.py", line 897, in fit_transform
+    return self.fit(X, y, **fit_params).transform(X)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/pretab/transformers/ple/ple.py", line 84, in fit
+    self.conditions_.append(tree_to_code(dt, ["feature"]))
+                            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/pretab/transformers/ple/tree_to_code.py", line 55, in tree_to_code
+    recurse(0, 1, 0)
+    ~~~~~~~^^^^^^^^^
+  File "/home/linkezio/Projects/Projeto-2-Aprendizagem-de-Maquina-2026.1/venv/lib/python3.13/site-packages/pretab/transformers/ple/tree_to_code.py", line 52, in recurse
+    my_list.append(pathto[parent])
+                   ~~~~~~^^^^^^^^
+KeyError: 0
+2026-06-02 11:12:54  DEBUG      [mambular] VRAM livre após cleanup: 9.7 GB
+2026-06-02 11:12:54  DEBUG      [mambular] pós-GC  |  RAM 17.8/32.8 GB (54%)  SWAP 4.2/4.3 GB
+2026-06-02 11:12:54  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:12:54  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:12:54  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:12:54  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:12:54  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:12:54  INFO     =======================================================
+2026-06-02 11:12:54  INFO     DATASET: Diabetes130US  (task_id=363630, regime=grande, n=71518)
+2026-06-02 11:12:54  DEBUG      Carregado: train=50062  test=21456  feats=47
+2026-06-02 11:12:54  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:12:54  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:12:54  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:12:54  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:12:54  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:12:54  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:12:54  INFO     =======================================================
+2026-06-02 11:12:54  INFO     DATASET: SDSS17  (task_id=363699, regime=grande, n=78053)
+2026-06-02 11:12:54  DEBUG      Carregado: train=54637  test=23416  feats=11
+2026-06-02 11:12:54  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:12:54  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:12:54  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:12:54  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:12:54  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:12:54  INFO       [autogluon_extreme] iniciando...  |  RAM 17.6/32.8 GB (54%)  SWAP 4.2/4.3 GB  VRAM 1.9/12.3 GB
+2026-06-02 11:14:18  INFO     Iniciando runner  |  pares já computados: 177  |  RAM 16.5/32.8 GB (50%)  SWAP 3.4/4.3 GB
+2026-06-02 11:14:18  INFO     =======================================================
+2026-06-02 11:14:18  INFO     DATASET: blood-transfusion-service-center  (task_id=363621, regime=pequeno, n=748)
+2026-06-02 11:14:19  DEBUG      Carregado: train=523  test=225  feats=4
+2026-06-02 11:14:19  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:19  INFO     =======================================================
+2026-06-02 11:14:19  INFO     DATASET: diabetes  (task_id=363629, regime=pequeno, n=768)
+2026-06-02 11:14:19  DEBUG      Carregado: train=537  test=231  feats=8
+2026-06-02 11:14:19  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:19  INFO     =======================================================
+2026-06-02 11:14:19  INFO     DATASET: anneal  (task_id=363614, regime=pequeno, n=898)
+2026-06-02 11:14:19  DEBUG      Carregado: train=628  test=270  feats=38
+2026-06-02 11:14:19  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:19  INFO     =======================================================
+2026-06-02 11:14:19  INFO     DATASET: credit-g  (task_id=363626, regime=medio, n=1000)
+2026-06-02 11:14:19  DEBUG      Carregado: train=700  test=300  feats=20
+2026-06-02 11:14:19  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:19  INFO     =======================================================
+2026-06-02 11:14:19  INFO     DATASET: maternal_health_risk  (task_id=363685, regime=medio, n=1014)
+2026-06-02 11:14:19  DEBUG      Carregado: train=709  test=305  feats=6
+2026-06-02 11:14:19  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:19  INFO     =======================================================
+2026-06-02 11:14:19  INFO     DATASET: qsar-biodeg  (task_id=363696, regime=medio, n=1054)
+2026-06-02 11:14:19  DEBUG      Carregado: train=737  test=317  feats=41
+2026-06-02 11:14:19  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:19  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:19  INFO     =======================================================
+2026-06-02 11:14:19  INFO     DATASET: website_phishing  (task_id=363707, regime=medio, n=1353)
+2026-06-02 11:14:20  DEBUG      Carregado: train=947  test=406  feats=9
+2026-06-02 11:14:20  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:20  INFO     =======================================================
+2026-06-02 11:14:20  INFO     DATASET: Fitness_Club  (task_id=363671, regime=medio, n=1500)
+2026-06-02 11:14:20  DEBUG      Carregado: train=1050  test=450  feats=6
+2026-06-02 11:14:20  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:20  INFO     =======================================================
+2026-06-02 11:14:20  INFO     DATASET: MIC  (task_id=363711, regime=medio, n=1699)
+2026-06-02 11:14:20  DEBUG      Carregado: train=1189  test=510  feats=111
+2026-06-02 11:14:20  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:20  INFO     =======================================================
+2026-06-02 11:14:20  INFO     DATASET: Is-this-a-good-customer  (task_id=363682, regime=medio, n=1723)
+2026-06-02 11:14:20  DEBUG      Carregado: train=1206  test=517  feats=13
+2026-06-02 11:14:20  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:20  INFO     =======================================================
+2026-06-02 11:14:20  INFO     DATASET: Marketing_Campaign  (task_id=363684, regime=medio, n=2240)
+2026-06-02 11:14:20  DEBUG      Carregado: train=1568  test=672  feats=25
+2026-06-02 11:14:20  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:20  INFO     =======================================================
+2026-06-02 11:14:20  INFO     DATASET: seismic-bumps  (task_id=363700, regime=medio, n=2584)
+2026-06-02 11:14:20  DEBUG      Carregado: train=1808  test=776  feats=15
+2026-06-02 11:14:20  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:20  INFO     =======================================================
+2026-06-02 11:14:20  INFO     DATASET: splice  (task_id=363702, regime=medio, n=3190)
+2026-06-02 11:14:20  DEBUG      Carregado: train=2233  test=957  feats=60
+2026-06-02 11:14:20  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:20  INFO     =======================================================
+2026-06-02 11:14:20  INFO     DATASET: students_dropout_and_academic_success  (task_id=363704, regime=medio, n=4424)
+2026-06-02 11:14:20  DEBUG      Carregado: train=3096  test=1328  feats=36
+2026-06-02 11:14:20  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:20  INFO     =======================================================
+2026-06-02 11:14:20  INFO     DATASET: churn  (task_id=363623, regime=medio, n=5000)
+2026-06-02 11:14:20  DEBUG      Carregado: train=3500  test=1500  feats=19
+2026-06-02 11:14:20  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:20  INFO     =======================================================
+2026-06-02 11:14:20  INFO     DATASET: polish_companies_bankruptcy  (task_id=363694, regime=medio, n=5910)
+2026-06-02 11:14:20  DEBUG      Carregado: train=4137  test=1773  feats=64
+2026-06-02 11:14:20  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:20  INFO     =======================================================
+2026-06-02 11:14:20  INFO     DATASET: taiwanese_bankruptcy_prediction  (task_id=363706, regime=medio, n=6819)
+2026-06-02 11:14:20  DEBUG      Carregado: train=4773  test=2046  feats=94
+2026-06-02 11:14:20  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:20  INFO     =======================================================
+2026-06-02 11:14:20  INFO     DATASET: heloc  (task_id=363676, regime=grande, n=10459)
+2026-06-02 11:14:20  DEBUG      Carregado: train=7321  test=3138  feats=23
+2026-06-02 11:14:20  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:20  INFO     =======================================================
+2026-06-02 11:14:20  INFO     DATASET: jm1  (task_id=363712, regime=grande, n=10885)
+2026-06-02 11:14:20  DEBUG      Carregado: train=7619  test=3266  feats=21
+2026-06-02 11:14:20  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:20  INFO     =======================================================
+2026-06-02 11:14:20  INFO     DATASET: E-CommereShippingData  (task_id=363632, regime=grande, n=10999)
+2026-06-02 11:14:20  DEBUG      Carregado: train=7699  test=3300  feats=10
+2026-06-02 11:14:20  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:20  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:20  INFO     =======================================================
+2026-06-02 11:14:20  INFO     DATASET: online_shoppers_intention  (task_id=363691, regime=grande, n=12330)
+2026-06-02 11:14:21  DEBUG      Carregado: train=8631  test=3699  feats=17
+2026-06-02 11:14:21  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:21  INFO     =======================================================
+2026-06-02 11:14:21  INFO     DATASET: in_vehicle_coupon_recommendation  (task_id=363681, regime=grande, n=12684)
+2026-06-02 11:14:21  DEBUG      Carregado: train=8878  test=3806  feats=24
+2026-06-02 11:14:21  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:21  INFO     =======================================================
+2026-06-02 11:14:21  INFO     DATASET: HR_Analytics_Job_Change_of_Data_Scientists  (task_id=363679, regime=grande, n=19158)
+2026-06-02 11:14:21  DEBUG      Carregado: train=13410  test=5748  feats=12
+2026-06-02 11:14:21  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:21  INFO     =======================================================
+2026-06-02 11:14:21  INFO     DATASET: credit_card_clients_default  (task_id=363627, regime=grande, n=30000)
+2026-06-02 11:14:21  DEBUG      Carregado: train=21000  test=9000  feats=23
+2026-06-02 11:14:21  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:21  INFO     =======================================================
+2026-06-02 11:14:21  INFO     DATASET: Amazon_employee_access  (task_id=363613, regime=grande, n=32769)
+2026-06-02 11:14:21  DEBUG      Carregado: train=22938  test=9831  feats=9
+2026-06-02 11:14:21  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:21  INFO     =======================================================
+2026-06-02 11:14:21  INFO     DATASET: bank-marketing  (task_id=363618, regime=grande, n=45211)
+2026-06-02 11:14:21  DEBUG      Carregado: train=31647  test=13564  feats=13
+2026-06-02 11:14:21  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:21  INFO     =======================================================
+2026-06-02 11:14:21  INFO     DATASET: APSFailure  (task_id=363616, regime=grande, n=76000)
+2026-06-02 11:14:21  DEBUG      Carregado: train=53200  test=22800  feats=170
+2026-06-02 11:14:21  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:21  INFO     =======================================================
+2026-06-02 11:14:21  INFO     DATASET: Diabetes130US  (task_id=363630, regime=grande, n=71518)
+2026-06-02 11:14:21  DEBUG      Carregado: train=50062  test=21456  feats=47
+2026-06-02 11:14:21  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 11:14:21  INFO     =======================================================
+2026-06-02 11:14:21  INFO     DATASET: SDSS17  (task_id=363699, regime=grande, n=78053)
+2026-06-02 11:14:21  DEBUG      Carregado: train=54637  test=23416  feats=11
+2026-06-02 11:14:21  DEBUG      [mambular] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [catboost] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [xgboost] já computado — pulando
+2026-06-02 11:14:21  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 11:14:21  INFO       [autogluon_extreme] iniciando...  |  RAM 17.3/32.8 GB (53%)  SWAP 3.4/4.3 GB  VRAM 1.8/12.3 GB
+2026-06-02 13:15:39  INFO       [autogluon_extreme] OK  AUC=0.9965  ACC=0.9786  G-Mean=0.9703  CE=0.0726  t=7277s
+2026-06-02 13:15:39  DEBUG      [autogluon_extreme] pós-GC  |  RAM 26.8/32.8 GB (82%)  SWAP 4.3/4.3 GB
+2026-06-02 13:15:39  INFO     =======================================================
+2026-06-02 13:15:39  INFO     DATASET: customer_satisfaction_in_airline  (task_id=363628, regime=grande, n=129880)
+2026-06-02 13:15:40  DEBUG      Carregado: train=90916  test=38964  feats=21
+2026-06-02 13:15:40  INFO       [mambular] iniciando...  |  RAM 26.8/32.8 GB (82%)  SWAP 4.3/4.3 GB  VRAM 5.5/12.3 GB
+2026-06-02 15:04:46  INFO     Iniciando runner  |  pares já computados: 178  |  RAM 20.3/32.8 GB (62%)  SWAP 4.3/4.3 GB
+2026-06-02 15:04:46  INFO     =======================================================
+2026-06-02 15:04:46  INFO     DATASET: blood-transfusion-service-center  (task_id=363621, regime=pequeno, n=748)
+2026-06-02 15:04:48  DEBUG      Carregado: train=523  test=225  feats=4
+2026-06-02 15:04:48  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:48  INFO     =======================================================
+2026-06-02 15:04:48  INFO     DATASET: diabetes  (task_id=363629, regime=pequeno, n=768)
+2026-06-02 15:04:48  DEBUG      Carregado: train=537  test=231  feats=8
+2026-06-02 15:04:48  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:48  INFO     =======================================================
+2026-06-02 15:04:48  INFO     DATASET: anneal  (task_id=363614, regime=pequeno, n=898)
+2026-06-02 15:04:48  DEBUG      Carregado: train=628  test=270  feats=38
+2026-06-02 15:04:48  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:48  INFO     =======================================================
+2026-06-02 15:04:48  INFO     DATASET: credit-g  (task_id=363626, regime=medio, n=1000)
+2026-06-02 15:04:48  DEBUG      Carregado: train=700  test=300  feats=20
+2026-06-02 15:04:48  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:48  INFO     =======================================================
+2026-06-02 15:04:48  INFO     DATASET: maternal_health_risk  (task_id=363685, regime=medio, n=1014)
+2026-06-02 15:04:48  DEBUG      Carregado: train=709  test=305  feats=6
+2026-06-02 15:04:48  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:48  INFO     =======================================================
+2026-06-02 15:04:48  INFO     DATASET: qsar-biodeg  (task_id=363696, regime=medio, n=1054)
+2026-06-02 15:04:48  DEBUG      Carregado: train=737  test=317  feats=41
+2026-06-02 15:04:48  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:48  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:48  INFO     =======================================================
+2026-06-02 15:04:48  INFO     DATASET: website_phishing  (task_id=363707, regime=medio, n=1353)
+2026-06-02 15:04:49  DEBUG      Carregado: train=947  test=406  feats=9
+2026-06-02 15:04:49  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:49  INFO     =======================================================
+2026-06-02 15:04:49  INFO     DATASET: Fitness_Club  (task_id=363671, regime=medio, n=1500)
+2026-06-02 15:04:49  DEBUG      Carregado: train=1050  test=450  feats=6
+2026-06-02 15:04:49  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:49  INFO     =======================================================
+2026-06-02 15:04:49  INFO     DATASET: MIC  (task_id=363711, regime=medio, n=1699)
+2026-06-02 15:04:49  DEBUG      Carregado: train=1189  test=510  feats=111
+2026-06-02 15:04:49  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:49  INFO     =======================================================
+2026-06-02 15:04:49  INFO     DATASET: Is-this-a-good-customer  (task_id=363682, regime=medio, n=1723)
+2026-06-02 15:04:49  DEBUG      Carregado: train=1206  test=517  feats=13
+2026-06-02 15:04:49  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:49  INFO     =======================================================
+2026-06-02 15:04:49  INFO     DATASET: Marketing_Campaign  (task_id=363684, regime=medio, n=2240)
+2026-06-02 15:04:49  DEBUG      Carregado: train=1568  test=672  feats=25
+2026-06-02 15:04:49  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:49  INFO     =======================================================
+2026-06-02 15:04:49  INFO     DATASET: seismic-bumps  (task_id=363700, regime=medio, n=2584)
+2026-06-02 15:04:49  DEBUG      Carregado: train=1808  test=776  feats=15
+2026-06-02 15:04:49  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:49  INFO     =======================================================
+2026-06-02 15:04:49  INFO     DATASET: splice  (task_id=363702, regime=medio, n=3190)
+2026-06-02 15:04:49  DEBUG      Carregado: train=2233  test=957  feats=60
+2026-06-02 15:04:49  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:49  INFO     =======================================================
+2026-06-02 15:04:49  INFO     DATASET: students_dropout_and_academic_success  (task_id=363704, regime=medio, n=4424)
+2026-06-02 15:04:49  DEBUG      Carregado: train=3096  test=1328  feats=36
+2026-06-02 15:04:49  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:49  INFO     =======================================================
+2026-06-02 15:04:49  INFO     DATASET: churn  (task_id=363623, regime=medio, n=5000)
+2026-06-02 15:04:49  DEBUG      Carregado: train=3500  test=1500  feats=19
+2026-06-02 15:04:49  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:49  INFO     =======================================================
+2026-06-02 15:04:49  INFO     DATASET: polish_companies_bankruptcy  (task_id=363694, regime=medio, n=5910)
+2026-06-02 15:04:49  DEBUG      Carregado: train=4137  test=1773  feats=64
+2026-06-02 15:04:49  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:49  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:49  INFO     =======================================================
+2026-06-02 15:04:49  INFO     DATASET: taiwanese_bankruptcy_prediction  (task_id=363706, regime=medio, n=6819)
+2026-06-02 15:04:50  DEBUG      Carregado: train=4773  test=2046  feats=94
+2026-06-02 15:04:50  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:50  INFO     =======================================================
+2026-06-02 15:04:50  INFO     DATASET: heloc  (task_id=363676, regime=grande, n=10459)
+2026-06-02 15:04:50  DEBUG      Carregado: train=7321  test=3138  feats=23
+2026-06-02 15:04:50  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:50  INFO     =======================================================
+2026-06-02 15:04:50  INFO     DATASET: jm1  (task_id=363712, regime=grande, n=10885)
+2026-06-02 15:04:50  DEBUG      Carregado: train=7619  test=3266  feats=21
+2026-06-02 15:04:50  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:50  INFO     =======================================================
+2026-06-02 15:04:50  INFO     DATASET: E-CommereShippingData  (task_id=363632, regime=grande, n=10999)
+2026-06-02 15:04:50  DEBUG      Carregado: train=7699  test=3300  feats=10
+2026-06-02 15:04:50  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:50  INFO     =======================================================
+2026-06-02 15:04:50  INFO     DATASET: online_shoppers_intention  (task_id=363691, regime=grande, n=12330)
+2026-06-02 15:04:50  DEBUG      Carregado: train=8631  test=3699  feats=17
+2026-06-02 15:04:50  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:50  INFO     =======================================================
+2026-06-02 15:04:50  INFO     DATASET: in_vehicle_coupon_recommendation  (task_id=363681, regime=grande, n=12684)
+2026-06-02 15:04:50  DEBUG      Carregado: train=8878  test=3806  feats=24
+2026-06-02 15:04:50  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:50  INFO     =======================================================
+2026-06-02 15:04:50  INFO     DATASET: HR_Analytics_Job_Change_of_Data_Scientists  (task_id=363679, regime=grande, n=19158)
+2026-06-02 15:04:50  DEBUG      Carregado: train=13410  test=5748  feats=12
+2026-06-02 15:04:50  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:50  INFO     =======================================================
+2026-06-02 15:04:50  INFO     DATASET: credit_card_clients_default  (task_id=363627, regime=grande, n=30000)
+2026-06-02 15:04:50  DEBUG      Carregado: train=21000  test=9000  feats=23
+2026-06-02 15:04:50  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:50  INFO     =======================================================
+2026-06-02 15:04:50  INFO     DATASET: Amazon_employee_access  (task_id=363613, regime=grande, n=32769)
+2026-06-02 15:04:50  DEBUG      Carregado: train=22938  test=9831  feats=9
+2026-06-02 15:04:50  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:50  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:50  INFO     =======================================================
+2026-06-02 15:04:50  INFO     DATASET: bank-marketing  (task_id=363618, regime=grande, n=45211)
+2026-06-02 15:04:51  DEBUG      Carregado: train=31647  test=13564  feats=13
+2026-06-02 15:04:51  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:51  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:51  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:51  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:51  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:51  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:51  INFO     =======================================================
+2026-06-02 15:04:51  INFO     DATASET: APSFailure  (task_id=363616, regime=grande, n=76000)
+2026-06-02 15:04:51  DEBUG      Carregado: train=53200  test=22800  feats=170
+2026-06-02 15:04:51  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:51  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:51  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:51  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:51  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:51  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:51  INFO     =======================================================
+2026-06-02 15:04:51  INFO     DATASET: Diabetes130US  (task_id=363630, regime=grande, n=71518)
+2026-06-02 15:04:51  DEBUG      Carregado: train=50062  test=21456  feats=47
+2026-06-02 15:04:51  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:51  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:51  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:51  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:51  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:51  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:51  INFO     =======================================================
+2026-06-02 15:04:51  INFO     DATASET: SDSS17  (task_id=363699, regime=grande, n=78053)
+2026-06-02 15:04:51  DEBUG      Carregado: train=54637  test=23416  feats=11
+2026-06-02 15:04:51  DEBUG      [mambular] já computado — pulando
+2026-06-02 15:04:51  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 15:04:51  DEBUG      [catboost] já computado — pulando
+2026-06-02 15:04:51  DEBUG      [xgboost] já computado — pulando
+2026-06-02 15:04:51  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 15:04:51  DEBUG      [autogluon_extreme] já computado — pulando
+2026-06-02 15:04:51  INFO     =======================================================
+2026-06-02 15:04:51  INFO     DATASET: customer_satisfaction_in_airline  (task_id=363628, regime=grande, n=129880)
+2026-06-02 15:04:51  DEBUG      Carregado: train=90916  test=38964  feats=21
+2026-06-02 15:04:51  INFO       [mambular] iniciando...  |  RAM 20.7/32.8 GB (63%)  SWAP 4.3/4.3 GB  VRAM 2.4/12.3 GB
+2026-06-02 17:06:58  DEBUG      [mambular] best_params={'d_model': 16, 'n_layers': 3, 'dropout': 0.12938999080000846, 'lr': 0.0013353819088790589, 'numerical_preprocessing': 'quantile'}
+2026-06-02 17:26:50  INFO       [mambular] OK  AUC=0.9928  ACC=0.9526  G-Mean=0.9537  CE=0.1051  t=8518s
+2026-06-02 17:26:50  DEBUG      [mambular] VRAM livre após cleanup: 9.9 GB
+2026-06-02 17:26:50  DEBUG      [mambular] pós-GC  |  RAM 20.3/32.8 GB (62%)  SWAP 4.3/4.3 GB
+2026-06-02 17:26:50  DEBUG      [lightgbm] já computado — pulando
+2026-06-02 17:26:50  DEBUG      [catboost] já computado — pulando
+2026-06-02 17:26:50  DEBUG      [xgboost] já computado — pulando
+2026-06-02 17:26:50  DEBUG      [autogluon_default] já computado — pulando
+2026-06-02 17:26:50  INFO       [autogluon_extreme] iniciando...  |  RAM 20.3/32.8 GB (62%)  SWAP 4.3/4.3 GB  VRAM 1.7/12.3 GB
+2026-06-02 19:27:22  INFO       [autogluon_extreme] OK  AUC=0.9946  ACC=0.9607  G-Mean=0.9615  CE=0.0920  t=7232s
+2026-06-02 19:27:23  DEBUG      [autogluon_extreme] pós-GC  |  RAM 24.8/32.8 GB (76%)  SWAP 4.3/4.3 GB
+2026-06-02 19:27:23  INFO     Runner finalizado.

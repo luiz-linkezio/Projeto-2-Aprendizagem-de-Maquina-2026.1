@@ -171,9 +171,6 @@ def _run_autogluon(
     preset: str, time_limit: int,
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     from autogluon.tabular import TabularDataset, TabularPredictor
-    # Esconde GPU para AutoGluon/Ray — evita falhas de XGBoost-CUDA nos workers
-    _old_cuda = os.environ.get("CUDA_VISIBLE_DEVICES")
-    os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
     n_classes = len(y_train.unique())
     eval_metric = "roc_auc" if n_classes == 2 else "roc_auc_ovo_macro"
@@ -216,11 +213,6 @@ def _run_autogluon(
 
     if os.path.exists("AutogluonModels"):
         shutil.rmtree("AutogluonModels", ignore_errors=True)
-
-    if _old_cuda is None:
-        os.environ.pop("CUDA_VISIBLE_DEVICES", None)
-    else:
-        os.environ["CUDA_VISIBLE_DEVICES"] = _old_cuda
 
     return y_pred_test, y_proba_test, y_pred_train, y_proba_train
 
@@ -284,14 +276,20 @@ def run() -> None:
                     model = build_model(model_name, best_params, X_train)
 
                     if model_name == "mambular":
-                        model.fit(X_train, y_train, max_epochs=50)
+                        from experiments.models import _sanitize_for_mambular
+                        X_tr_m = _sanitize_for_mambular(X_train)
+                        X_te_m = _sanitize_for_mambular(X_test)
+                        model.fit(X_tr_m, y_train, max_epochs=50, batch_size=32)
+                        y_pred    = model.predict(X_te_m)
+                        y_proba   = model.predict_proba(X_te_m)
+                        y_pred_tr = model.predict(X_tr_m)
+                        y_proba_tr = model.predict_proba(X_tr_m)
                     else:
                         model.fit(X_train, y_train)
-
-                    y_pred    = model.predict(X_test)
-                    y_proba   = model.predict_proba(X_test)
-                    y_pred_tr = model.predict(X_train)
-                    y_proba_tr = model.predict_proba(X_train)
+                        y_pred    = model.predict(X_test)
+                        y_proba   = model.predict_proba(X_test)
+                        y_pred_tr = model.predict(X_train)
+                        y_proba_tr = model.predict_proba(X_train)
 
                     if model_name == "mambular":
                         del model

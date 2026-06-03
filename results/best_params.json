@@ -620,6 +620,13 @@
       "subsample": 0.9795542149013333,
       "colsample_bytree": 0.9862528132298237,
       "min_child_weight": 9
+    },
+    "mambular": {
+      "d_model": 16,
+      "n_layers": 3,
+      "dropout": 0.36599697090570255,
+      "lr": 0.0010401663679887319,
+      "numerical_preprocessing": "ple"
     }
   },
   "363681": {
@@ -675,6 +682,13 @@
       "subsample": 0.6733618039413735,
       "colsample_bytree": 0.7216968971838151,
       "min_child_weight": 6
+    },
+    "mambular": {
+      "d_model": 16,
+      "n_layers": 3,
+      "dropout": 0.3875664116805573,
+      "lr": 0.003946212980759096,
+      "numerical_preprocessing": "quantile"
     }
   },
   "363627": {
@@ -699,6 +713,13 @@
       "subsample": 0.6733618039413735,
       "colsample_bytree": 0.7216968971838151,
       "min_child_weight": 6
+    },
+    "mambular": {
+      "d_model": 16,
+      "n_layers": 3,
+      "dropout": 0.36599697090570255,
+      "lr": 0.0010401663679887319,
+      "numerical_preprocessing": "ple"
     }
   },
   "363613": {
@@ -723,6 +744,13 @@
       "subsample": 0.8056937753654446,
       "colsample_bytree": 0.836965827544817,
       "min_child_weight": 1
+    },
+    "mambular": {
+      "d_model": 16,
+      "n_layers": 3,
+      "dropout": 0.3875664116805573,
+      "lr": 0.003946212980759096,
+      "numerical_preprocessing": "quantile"
     }
   },
   "363618": {
@@ -747,6 +775,13 @@
       "subsample": 0.6733618039413735,
       "colsample_bytree": 0.7216968971838151,
       "min_child_weight": 6
+    },
+    "mambular": {
+      "d_model": 32,
+      "n_layers": 2,
+      "dropout": 0.35403628889802274,
+      "lr": 0.00010838581269344756,
+      "numerical_preprocessing": "ple"
     }
   },
   "363616": {
@@ -795,6 +830,13 @@
       "subsample": 0.6733618039413735,
       "colsample_bytree": 0.7216968971838151,
       "min_child_weight": 6
+    },
+    "mambular": {
+      "d_model": 16,
+      "n_layers": 3,
+      "dropout": 0.3875664116805573,
+      "lr": 0.003946212980759096,
+      "numerical_preprocessing": "quantile"
     }
   },
   "363699": {
@@ -819,6 +861,13 @@
       "subsample": 0.6557975442608167,
       "colsample_bytree": 0.7168578594140873,
       "min_child_weight": 4
+    },
+    "mambular": {
+      "d_model": 32,
+      "n_layers": 2,
+      "dropout": 0.35403628889802274,
+      "lr": 0.00010838581269344756,
+      "numerical_preprocessing": "ple"
     }
   },
   "363628": {
@@ -843,6 +892,13 @@
       "subsample": 0.8394633936788146,
       "colsample_bytree": 0.6624074561769746,
       "min_child_weight": 2
+    },
+    "mambular": {
+      "d_model": 16,
+      "n_layers": 3,
+      "dropout": 0.12938999080000846,
+      "lr": 0.0013353819088790589,
+      "numerical_preprocessing": "quantile"
     }
   }
 }

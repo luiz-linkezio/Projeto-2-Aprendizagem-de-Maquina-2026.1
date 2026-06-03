@@ -75,14 +75,18 @@ def run_bayesian(pivot: pd.DataFrame) -> None:
               f"P(M>B)={p_left:.3f}  P(rope)={p_rope:.3f}  P(B>M)={p_right:.3f}")
 
         # Gráfico Bayesiano por par
-        fig = baycomp.two_on_multiple(
-            mambular_scores, baseline_scores, rope=ROPE, plot=True,
-            names=("Mambular", label)
-        )
-        if fig is not None:
-            path = os.path.join(PLOTS_DIR, f"bayesian_mambular_vs_{baseline}.png")
-            fig.savefig(path, dpi=150)
-            plt.close(fig)
+        try:
+            result_plot = baycomp.two_on_multiple(
+                mambular_scores, baseline_scores, rope=ROPE, plot=True,
+                names=("Mambular", label)
+            )
+            fig = result_plot[0] if isinstance(result_plot, tuple) else result_plot
+            if fig is not None:
+                path = os.path.join(PLOTS_DIR, f"bayesian_mambular_vs_{baseline}.png")
+                fig.savefig(path, dpi=150)
+                plt.close(fig)
+        except Exception:
+            pass
 
     results_df = pd.DataFrame(rows)
     out = os.path.join("results", "bayesian_results.csv")

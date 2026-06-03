@@ -68,9 +68,20 @@ def _cuda_cleanup() -> None:
         pass
 
 
+def _sanitize_for_mambular(df: pd.DataFrame) -> pd.DataFrame:
+    df = df.copy()
+    for col in df.columns:
+        if df[col].dtype == bool:
+            df[col] = df[col].astype(int)
+        elif df[col].dtype == object or str(df[col].dtype) == "category":
+            df[col] = df[col].astype(str).replace("nan", "missing").replace("None", "missing")
+    return df
+
+
 def _mambular_cv(params: dict, X: pd.DataFrame, y: pd.Series, cv_folds: int, seed: int) -> float:
     from deeptab.models import MambularClassifier
 
+    X = _sanitize_for_mambular(X)
     skf = StratifiedKFold(n_splits=cv_folds, shuffle=True, random_state=seed)
     scores = []
     for train_idx, val_idx in skf.split(X, y):
@@ -105,7 +116,7 @@ def tune_mambular(X_train: pd.DataFrame, y_train: pd.Series, n_trials: int, cv_f
             "dropout": trial.suggest_float("dropout", 0.0, 0.5),
             "lr": trial.suggest_float("lr", 1e-4, 5e-3, log=True),
             "numerical_preprocessing": trial.suggest_categorical(
-                "numerical_preprocessing", ["ple", "standardization", "quantile"]
+                "numerical_preprocessing", ["standardization", "quantile"]
             ),
         }
         return _mambular_cv(params, X_train, y_train, cv_folds, seed)
