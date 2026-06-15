@@ -1,0 +1,32 @@
+[project]
+name = "projeto-am-2026"
+version = "0.1.0"
+description = "Projeto Final AM 2026.1 — Mambular vs baselines no TabArena-v0.1"
+requires-python = ">=3.10"
+dependencies = [
+    "deeptab==1.7.0",
+    "lightgbm==4.6.0",
+    "catboost==1.2.10",
+    "xgboost==3.1.3",
+    "autogluon.tabular==1.5.0",
+    "openml==0.15.1",
+    "optuna==4.8.0",
+    "autorank==1.3.0",
+    "baycomp==1.0.3",
+    "scikit-learn==1.7.2",
+    "pandas>=2.0.0",
+    "numpy>=2.0.0",
+    "matplotlib>=3.8.0",
+    "seaborn>=0.13.0",
+    "torch==2.9.1",
+    "pytorch-lightning==2.6.4",
+    "psutil>=5.9.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.backends.legacy:BuildBackend"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["experiments*"]

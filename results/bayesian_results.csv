@@ -1,0 +1,6 @@
+baseline,P(Mambular > baseline),P(equivalente),P(baseline > Mambular)
+LightGBM,0.0,0.7667,0.2333
+CatBoost,0.0,0.7025,0.2975
+XGBoost,0.0,0.6938,0.3062
+AG-Default,0.0,0.3033,0.6967
+AG-Extreme,0.0,0.2132,0.7868
